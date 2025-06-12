@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AI News Digest - {{ date }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #333; }
+        h2 { color: #555; }
+        .article, .paper { margin-bottom: 20px; }
+        .summary { color: #666; }
+    </style>
+</head>
+<body>
+    <h1>AI News Digest - {{ date }}</h1>
+
+    <h2>📰 Top AI Articles</h2>
+    {% for article in articles %}
+        <div class="article">
+            <a href="{{ article.link }}"><strong>{{ article.title }}</strong></a><br>
+            <em>{{ article.published }}</em>
+            <p class="summary">{{ article.summary }}</p>
+        </div>
+    {% endfor %}
+
+    <h2>📚 Latest AI Papers (arXiv)</h2>
+    {% for paper in papers %}
+        <div class="paper">
+            <a href="{{ paper.pdf_url }}"><strong>{{ paper.title }}</strong></a><br>
+            <em>Authors: {{ paper.authors }} | Published: {{ paper.published }}</em>
+            <p class="summary">{{ paper.summary }}</p>
+        </div>
+    {% endfor %}
+
+</body>
+</html>
