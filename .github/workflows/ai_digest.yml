@@ -12,12 +12,12 @@ jobs:
 
     steps:
       - name: Checkout repo
-      uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.9'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
 
       - name: Install dependencies
         run: |
@@ -28,7 +28,7 @@ jobs:
         run: python ai_news_digest.py
 
       - name: Upload artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: ai_news_digest
-        path: ai_news_digest.html
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai_news_digest
+          path: ai_news_digest.html
