@@ -1,13 +1,15 @@
 name: Weekly AI News Digest
 
 on:
+  workdlow_dispatch: {}
+  push: {}
   schedule:
-  - cron: '0 9 * * 6'
-  workflow_dispatch:
+    - cron: '0 9 * * 6'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
       uses: actions/checkout@v4
@@ -23,7 +25,7 @@ jobs:
           pip install feedparser arxiv jinja2
 
       - name: Run script
-      run: python ai_news_digest.py
+        run: python ai_news_digest.py
 
       - name: Upload artifact
       uses: actions/upload-artifact@v4
